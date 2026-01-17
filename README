@@ -1,6 +1,5 @@
-#Project Roadmap: Reliable News & Offline Reader
-
-##Phase 1: The UI Shell & Static Feed
+# News Freed: Reliable News & Offline Reader
+## Phase 1: The UI Shell & Static Feed
 Goal: Get the visual structure in place using Compose and mock data.
 
 Project Setup: Initialize a New Android Project (Empty Compose Activity). Install dependencies: Hilt (DI), Retrofit, Room, and Navigation.
@@ -13,9 +12,7 @@ The Bottom Sheet: Use ModalBottomSheetLayout. Create a DetailContent composable 
 
 State Logic: Wire it so tapping a list item updates a selectedArticle state, which then expands the Bottom Sheet.
 
----
-
-##Phase 2: Networking (The "Everything can fail" Layer)
+## Phase 2: Networking (The "Everything can fail" Layer)
 Goal: Connect to NewsAPI and handle the reality of the web.
 
 API Integration: Create your NewsService interface. Start with a single endpoint: GET /v2/top-headlines?country=us.
@@ -28,9 +25,8 @@ The Interceptor (Tester Skill): Add an OkHttp Interceptor that logs every reques
 
 Challenge: Hardcode it to randomly return a 500 Internal Server Error 10% of the time to see how your UI handles it.
 
----
 
-##Phase 3: Persistence (The "Offline First" Layer)
+## Phase 3: Persistence (The "Offline First" Layer)
 Goal: Use Room to make the app work without an internet connection.
 
 Room Setup: Define an ArticleEntity and a NewsDatabase.
@@ -41,9 +37,8 @@ Local Flow: Update the Bookmarks Tab to observe a Flow<List<ArticleEntity>> from
 
 Manual Offline Check: Implement a "Save for Offline" toggle. If toggled, the app should download the full article body to the DB.
 
----
 
-##Phase 4: Framework Deep Dive (WorkManager & Notifications)
+## Phase 4: Framework Deep Dive (WorkManager & Notifications)
 Goal: Integrate with the Android OS lifecycle.
 
 Background Sync: Create a SyncWorker using WorkManager.
@@ -54,9 +49,8 @@ System Notifications: When the Worker finds a new "Breaking News" story, trigger
 
 Deep Linking: Use a PendingIntent so that clicking the notification opens the app directly to that article's Bottom Sheet.
 
----
 
-##Phase 5: The Test Engineer’s "Hardening"
+## Phase 5: The Test Engineer’s "Hardening"
 Goal: Apply your specific background to make the code un-flaky.
 
 Unit Testing Flows: Write tests for your ViewModel using Turbine (a library for testing Flows) to ensure Loading always happens before Success.
@@ -65,7 +59,8 @@ Dependency Injection: Use Hilt to swap your real NewsService with a FakeNewsServ
 
 Idling Resources: (Since you know Espresso) Ensure your Compose tests don't need Thread.sleep() by properly using collectAsStateWithLifecycle.
 
-##How to start right now
+
+## How to start right now
 Get a free API key from NewsAPI.org.
 
 Create your Article data class.
