@@ -1,4 +1,5 @@
 # News Freed: Reliable News & Offline Reader
+
 ## Phase 1: The UI Shell & Static Feed
 Goal: Get the visual structure in place using Compose and mock data.
 
